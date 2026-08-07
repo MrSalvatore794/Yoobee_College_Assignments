@@ -1,4 +1,4 @@
-# Student Assignment: BMI Calculator (Metric)
+#BMI Calculator (Metric)
 
 
 def calculate_bmi():
