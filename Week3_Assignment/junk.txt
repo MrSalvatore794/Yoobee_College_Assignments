@@ -1,0 +1,22 @@
+junk data file
+================
+
+this is a sample junk text file created for testing purposes.
+
+random notes:
+- this file contains example text.
+- the content is not intended to represent real data.
+- it can be used to test file reading, text processing, and data-cleaning scripts.
+
+sample values:
+apple
+orange
+banana
+12345
+abcde
+test record 01
+test record 02
+
+end of junk data.
+text file analysis
+text file analysis
