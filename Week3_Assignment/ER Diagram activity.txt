@@ -1,5 +1,14 @@
-data = open (r"C:\Users\indus\Downloads\Junk.txt", "r")
-lines=data.readlines()
-for line in data:
-    print(line[0:-1])
-data.close()
+ER Diagram Scenario
+This ER diagram is basically about a university system. It shows how students, lectures, and teachers are connected. It keeps track of student info, what classes they enroll in, and which lecturer is teaching which subject.
+
+1. Adding attributes
+
+For the Student entity, I would add Email or Phone_number. Right now there is no contact info, which a real college database would definitely need.
+
+For the Lecture entity, I would add a Room_number attribute. It has the time and date, but students need to know where the class actually is.
+
+2. Relationships
+
+Student and Lecture: This is a Many-to-Many (M:N) relationship. One student can take many lectures, and one lecture holds many students. The Enrollment entity is just a bridge table used to connect them.
+
+Lecturer and Subjects: This is a Many-to-Many (M:N) relationship. This just means a lecturer can teach multiple subjects, and a subject can be taught by different lecturers.

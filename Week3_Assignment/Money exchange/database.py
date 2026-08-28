@@ -7,14 +7,15 @@ class Database:
         self.cursor = self.conn.cursor()
         
     def setup(self):
-        # Drop tables if they exist to start fresh
+        
+        # dropping tables
         self.cursor.executescript('''
             DROP TABLE IF EXISTS Transactions;
             DROP TABLE IF EXISTS Customers;
             DROP TABLE IF EXISTS Currencies;
         ''')
         
-        # Create tables
+        # making the tables
         self.cursor.executescript('''
             CREATE TABLE Customers (
                 customer_id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -42,24 +43,25 @@ class Database:
         ''')
         self.conn.commit()
 
-    def insert_customer(self, customer):
+    def insert_customer(self, cust):
         self.cursor.execute("INSERT INTO Customers (name, email) VALUES (?, ?)", 
-                            (customer.name, customer.email))
+                            (cust.name, cust.email))
         self.conn.commit()
 
-    def insert_currency(self, currency):
+    def insert_currency(self, curr):
         self.cursor.execute("INSERT INTO Currencies (code, name, rate) VALUES (?, ?, ?)", 
-                            (currency.code, currency.name, currency.rate))
+                            (curr.code, curr.name, curr.rate))
         self.conn.commit()
 
-    def insert_transaction(self, transaction):
+    def insert_transaction(self, trans):
         self.cursor.execute('''
             INSERT INTO Transactions (customer_id, from_currency, to_currency, amount, date)
             VALUES (?, ?, ?, ?, ?)
-        ''', (transaction.customer_id, transaction.from_currency, transaction.to_currency, transaction.amount, transaction.date))
+        ''', (trans.customer_id, trans.from_currency, trans.to_currency, trans.amount, trans.date))
         self.conn.commit()
 
     def show_transactions(self):
+        # joining the tables
         self.cursor.execute('''
             SELECT Customers.name, Transactions.amount, Transactions.from_currency, Transactions.to_currency, Transactions.date
             FROM Transactions
