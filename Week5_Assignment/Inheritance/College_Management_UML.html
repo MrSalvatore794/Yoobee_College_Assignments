@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'default' });
+    </script>
+    <style>
+        body { margin: 0; padding: 20px; font-family: sans-serif; background: white; }
+        .diagram-container { margin-bottom: 50px; text-align: center; }
+        h2 { color: #333; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div class="diagram-container">
+        <h2>Use Case Diagram</h2>
+        <div class="mermaid">
+            flowchart LR
+                Student([Student])
+                Lecturer([Academic / Lecturer])
+
+                subgraph College System
+                    Enroll(Enroll in Course)
+                    View(View Course Details)
+                    Grade(Assign Grades)
+                    Manage(Manage Course Materials)
+                end
+
+                Student --> Enroll
+                Student --> View
+                Lecturer --> Grade
+                Lecturer --> Manage
+                Lecturer --> View
+        </div>
+    </div>
+
+    <div class="diagram-container">
+        <h2>Activity Diagram</h2>
+        <div class="mermaid">
+            stateDiagram-v2
+                [*] --> Login
+                Login --> SelectCourse : Browse Courses
+                SelectCourse --> CheckCapacity : Attempt Enrollment
+                
+                CheckCapacity --> Enrolled : Seats Available
+                CheckCapacity --> Waitlist : Class is Full
+                
+                Enrolled --> UpdateRoster
+                Waitlist --> UpdateRoster
+                
+                UpdateRoster --> [*]
+        </div>
+    </div>
+
+    <div class="diagram-container">
+        <h2>Class Diagram</h2>
+        <div class="mermaid">
+            classDiagram
+                class Person {
+                    +String Id
+                    +String name
+                }
+                class Student {
+                    +String student_id
+                    +String name
+                }
+                class Staff {
+                    +String staff_id
+                    +String tax_num
+                }
+                class General {
+                    +String Id
+                    +Float rate_of_pay
+                }
+                class Academic {
+                    +String id
+                    +String publications
+                }
+                class Course {
+                    +String course_id
+                    +String title
+                    +Integer capacity
+                }
+
+                Person <|-- Student
+                Person <|-- Staff
+                Staff <|-- General
+                Staff <|-- Academic
+
+                Academic "1" --> "*" Course : teaches
+                Student "*" --> "*" Course : enrolled in
+        </div>
+    </div>
+</body>
+</html>
