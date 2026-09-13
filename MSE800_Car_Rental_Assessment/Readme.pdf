@@ -1,0 +1,28 @@
+Car Rental System - Configuration & Operation 
+Installation & Configuration:
+
+1.Ensure Python 3.x is installed on your machine.
+2.Download all source files into a single directory.
+3.No external libraries are required; the system relies entirely on Python's standard library (json, os, uuid).
+4.Run the application by executing the following command in your terminal: python main.py
+
+Operation Guidance:
+
+1.First Run: The system will automatically generate a database.json file in the root directory to persist data.
+2.Registration: Select option '2' from the main menu to register a new account. You must specify your role as either 'Customer' or 'Admin'.
+3.Customer Workflow: Log in, view available cars, and request a booking by providing the Car ID and rental duration.
+4.Admin Workflow: Log in to add, update, or delete car inventory, and review/approve pending booking requests.
+
+File Descriptions:
+
+1.main.py: Houses the AppUI class, managing terminal interactions, user input, and menu navigation.
+2.database.py: Handles persistent data storage, saving and loading system records from database.json.
+3.user.py: Defines the base User class and the specialized Customer and Admin roles with their respective privileges.
+4.car.py: Defines the Car entity and attributes (mileage, rental periods, availability).
+5.rental.py: Manages the RentalBooking lifecycle, including unique ID generation and fee calculation.
+
+Licensing & Known Issues:
+
+License: Released under the MIT License.
+Known Bugs: The terminal interface does not currently sanitize non-integer inputs for rental durations, which may cause a crash if a user inputs text instead of numbers.
+Credits: Developed by Ayush Sharma (GitHub: MrSalvatore794).

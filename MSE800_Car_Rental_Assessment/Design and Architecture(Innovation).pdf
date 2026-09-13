@@ -1,0 +1,17 @@
+Innovative Feature: IoT Mobile Key & Telematics Integration
+
+To set this car rental system apart from traditional manual paperwork processes, the architecture
+incorporates an "IoT Mobile Key Unlock" feature. Traditional rental agencies require customers to
+physically visit a desk during business hours to retrieve keys, creating bottlenecks and limiting
+operational hours. This enhancement integrates the rental software with IoT telematic devices 
+installed in the fleet. Once an Admin changes a booking status to "Approved" in the system, a secure,
+time-sensitive digital token is generated. This token would be transmitted to a companion mobile 
+application, allowing the customer to unlock the car via Bluetooth or NFC directly from their smartphone.
+
+Industry Requirement & Competitive Advantage:
+
+This addresses a critical industry shift toward contactless, self-service rentals. It provides a severe
+competitive advantage by enabling 24/7 vehicle dispatch without requiring round-the-clock on-site staffing.
+Furthermore, because the Car class tracks precise variables like mileage and available_now, future
+iterations of this IoT integration can automatically sync odometer readings back to the database at
+the end of the rental period, completely automating the check-in and billing process.
